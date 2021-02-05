@@ -1,0 +1,5 @@
+client:
+ addr: "localhost:8080"
+ readers: 3
+ writers: 2
+ keys: [1, 2, 3, 4, 5]

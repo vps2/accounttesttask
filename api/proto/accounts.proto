@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api;
+
+service AccountsService {
+//Retrieves current balance or zero if addAmount() method was not called before for specified id.
+rpc getAmount(GetRequest) returns (GetResponse) {}
+
+//Increases balance or set if addAmount() method was called first time
+//param value - positive or negative value, which must be added to current balance
+rpc addAmount(AddRequest) returns (AddResponse) {}
+}
+
+message GetRequest {
+    int32 balanceId = 1;
+}
+message GetResponse {
+    int32 balanceId = 1;
+    int64 amount = 2;
+}
+
+message AddRequest {
+    int32 balanceId = 1;
+    int64 value = 2;
+}
+
+message AddResponse {
+}

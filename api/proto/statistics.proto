@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package api;
+
+service StatisticsService {
+    rpc Reset(Empty) returns (Empty) {}
+}
+
+message Empty {
+}
