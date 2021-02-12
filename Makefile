@@ -16,7 +16,6 @@ build-server:
 ifeq ($(GOOS),windows)
 	go mod download && go build -o bin/server.exe -ldflags "-s -w" cmd/server/main.go
 else
-	#go build -o bin/server -ldflags "-s -w" cmd/server/main.go
 	#компилируем для запуска в docker
 	go mod download && CGO_ENABLED=0 go build -o bin/server -ldflags "-s -w" cmd/server/main.go
 	#делаем образ docker

@@ -76,13 +76,6 @@ func (c *Client) Run(ctx context.Context) error {
 	}
 
 	for {
-		//---задержка выполнения для тестирования
-		// from := 1
-		// to := 3
-		// idle := time.Duration(rand.Intn(to-from) + from) * time.Second
-		// time.Sleep(idle)
-		//---
-
 		select {
 		case <-ctx.Done():
 			return nil
@@ -101,7 +94,6 @@ func (c *Client) doJob(ctx context.Context, client api.AccountsServiceClient) er
 
 	switch c.operation {
 	case OpRead:
-		// log.Infof("[%d]\taccount_%d\trequest balance\n", c.id, balanceId)
 		resp, err := client.GetAmount(ctx, &api.GetRequest{BalanceId: int32(balanceId)})
 		if err == nil {
 			log.Infof("[%d]\taccount_%d\trequested balance: %d\n", c.id, balanceId, resp.Amount)
@@ -114,7 +106,6 @@ func (c *Client) doJob(ctx context.Context, client api.AccountsServiceClient) er
 
 		amount := rand.Int63n(maxBound-minBound) + minBound
 
-		// log.Infof("[%d]\taccount_%d\tbefore adding amount %d", c.id, balanceId, amount)
 		_, err := client.AddAmount(ctx, &api.AddRequest{BalanceId: int32(balanceId), Value: amount})
 		log.Infof("[%d]\taccount_%d\tadd amount %d", c.id, balanceId, amount)
 
