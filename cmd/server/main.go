@@ -19,17 +19,20 @@ import (
 )
 
 var (
-	addr      string
-	cacheSize int
-	pgURL     string
+	addr            string
+	cacheSize       int
+	pgURL           string
+	pollingInterval string
 )
 
 func main() {
 	flag.StringVar(&addr, "addr", ":8080", "listening address")
 	flag.IntVar(&cacheSize, "cache-size", 10, "cache size")
 	flag.StringVar(&pgURL, "pg-url", os.Getenv("PG_URL"), "the postgresql connection string. If omitted, the PG_URL"+
-		"environment variable is searched for. If PG_URL not specified, then we use the in-memory storage.")
-
+		"environment variable is searched for. If PG_URL not specified, then we use the in-memory storage")
+	flag.StringVar(&pollingInterval, "polling-interval", os.Getenv("POLLING_INTERVAL"), "polling interval by the"+
+		" statistics collection service. If omitted, the POLLING_INTERVAL environment variable is searched for."+
+		" If POLLING_INTERVAL not specified, the default value is '30s'")
 	flag.Parse()
 
 	var repo repository.Accounts
@@ -52,7 +55,17 @@ func main() {
 		repo = _pg.NewAccountsRepo(db)
 	}
 
-	statisticsSvc := service.NewStatisticsSvc(context.Background(), 30*time.Second)
+	var _pollingInterval time.Duration
+	if pollingInterval == "" {
+		_pollingInterval = 30 * time.Second
+	} else {
+		var err error
+		if _pollingInterval, err = time.ParseDuration(pollingInterval); err != nil {
+			panic(err)
+		}
+	}
+
+	statisticsSvc := service.NewStatisticsSvc(context.Background(), _pollingInterval)
 
 	cache := lru.NewCache(cacheSize)
 	accountsSvc := service.NewAccountsSvc(repo, cache)

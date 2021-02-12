@@ -3,6 +3,7 @@
 
 GOOS = $(shell go env GOOS)
 ADDR?=:8080
+POLLING_INTERVAL?=15s
 IDLE?=15s
 
 ## protoс: сгенерировать go файл по описанию
@@ -36,9 +37,9 @@ build: build-server build-client
 ## run-server: запустить сервер. Можно установить значения переменной ADDR
 run-server: build-server
 ifeq ($(GOOS),windows)
-	go run cmd/server/main.go -addr $(ADDR)
+	go run cmd/server/main.go --addr $(ADDR) --polling-inteval $(POLLING_INTERVAL)
 else
-	docker run --rm --name accounts-srv -p $(ADDR):8080 accounts-srv
+	docker run --rm --name accounts-srv -p $(ADDR):8080 -e POLLING_INTERVAL=$(POLLING_INTERVAL) accounts-srv
 endif
 
 ## run-client: запустить клиента. Можно установить значения переменной IDLE
