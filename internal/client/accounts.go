@@ -1,8 +1,6 @@
 package client
 
 import (
-	"accounts/internal/api"
-	"accounts/pkg/log"
 	"context"
 	"errors"
 	"fmt"
@@ -10,6 +8,9 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/vps2/accounttesttask/internal/api"
+	"github.com/vps2/accounttesttask/pkg/log"
 
 	"google.golang.org/grpc"
 )

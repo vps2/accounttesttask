@@ -1,9 +1,10 @@
 package pg
 
 import (
-	"accounts/internal/server/model"
-	"accounts/internal/server/repository"
 	"context"
+
+	"github.com/vps2/accounttesttask/internal/server/model"
+	"github.com/vps2/accounttesttask/internal/server/repository"
 
 	"github.com/go-pg/pg/v10"
 )

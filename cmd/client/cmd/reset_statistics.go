@@ -1,9 +1,10 @@
 package cmd
 
 import (
-	"accounts/internal/client"
-	"accounts/pkg/log"
 	"context"
+
+	"github.com/vps2/accounttesttask/internal/client"
+	"github.com/vps2/accounttesttask/pkg/log"
 
 	"github.com/spf13/cobra"
 )

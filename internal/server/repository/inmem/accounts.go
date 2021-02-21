@@ -1,9 +1,10 @@
 package inmem
 
 import (
-	"accounts/internal/server/model"
-	"accounts/internal/server/repository"
 	"context"
+
+	"github.com/vps2/accounttesttask/internal/server/model"
+	"github.com/vps2/accounttesttask/internal/server/repository"
 )
 
 type AccountsRepo struct {

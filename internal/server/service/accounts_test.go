@@ -1,13 +1,14 @@
 package service
 
 import (
-	"accounts/internal/server/model"
-	"accounts/internal/server/repository"
-	rmocks "accounts/internal/server/repository/mocks"
-	cmocks "accounts/pkg/cache/mocks"
 	"context"
 	"errors"
 	"testing"
+
+	"github.com/vps2/accounttesttask/internal/server/model"
+	"github.com/vps2/accounttesttask/internal/server/repository"
+	rmocks "github.com/vps2/accounttesttask/internal/server/repository/mocks"
+	cmocks "github.com/vps2/accounttesttask/pkg/cache/mocks"
 
 	"github.com/stretchr/testify/mock"
 	"gotest.tools/assert"

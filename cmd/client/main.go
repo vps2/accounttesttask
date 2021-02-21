@@ -1,6 +1,6 @@
 package main
 
-import "accounts/cmd/client/cmd"
+import "github.com/vps2/accounttesttask/cmd/client/cmd"
 
 func main() {
 	cmd.Execute()

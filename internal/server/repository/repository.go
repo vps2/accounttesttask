@@ -1,8 +1,9 @@
 package repository
 
 import (
-	"accounts/internal/server/model"
 	"context"
+
+	"github.com/vps2/accounttesttask/internal/server/model"
 )
 
 //go:generate mockery --dir . --name Accounts --filename accounts.go --structname AccountsRepo --output ./mocks

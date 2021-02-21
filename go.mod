@@ -1,4 +1,4 @@
-module accounts
+module github.com/vps2/accounttesttask
 
 go 1.15
 

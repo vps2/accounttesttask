@@ -1,13 +1,14 @@
 package grpc
 
 import (
-	"accounts/internal/api"
-	"accounts/internal/server/service"
 	"context"
 	"errors"
 	"net"
 	"sync"
 	"unsafe"
+
+	"github.com/vps2/accounttesttask/internal/api"
+	"github.com/vps2/accounttesttask/internal/server/service"
 
 	"google.golang.org/grpc"
 )

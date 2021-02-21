@@ -1,8 +1,9 @@
 package client
 
 import (
-	"accounts/internal/api"
 	"context"
+
+	"github.com/vps2/accounttesttask/internal/api"
 
 	"google.golang.org/grpc"
 )

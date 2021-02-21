@@ -1,10 +1,11 @@
 package cmd
 
 import (
-	"accounts/internal/client/config"
-	"accounts/pkg/log"
 	"os"
 	"path/filepath"
+
+	"github.com/vps2/accounttesttask/internal/client/config"
+	"github.com/vps2/accounttesttask/pkg/log"
 
 	"github.com/spf13/cobra"
 	"gopkg.in/natefinch/lumberjack.v2"

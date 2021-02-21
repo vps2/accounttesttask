@@ -1,10 +1,11 @@
 package service
 
 import (
-	"accounts/pkg/log"
 	"context"
 	"sync/atomic"
 	"time"
+
+	"github.com/vps2/accounttesttask/pkg/log"
 )
 
 //StatisticsSvc представляет сборщик статистики. Методы типа могу вызываться из разных горутин.

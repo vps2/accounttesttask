@@ -1,12 +1,6 @@
 package main
 
 import (
-	"accounts/internal/server/grpc"
-	"accounts/internal/server/repository"
-	"accounts/internal/server/repository/inmem"
-	_pg "accounts/internal/server/repository/pg"
-	"accounts/internal/server/service"
-	"accounts/pkg/cache/lru"
 	"context"
 	"flag"
 	"log"
@@ -14,6 +8,13 @@ import (
 	"os/signal"
 	"strings"
 	"time"
+
+	"github.com/vps2/accounttesttask/internal/server/grpc"
+	"github.com/vps2/accounttesttask/internal/server/repository"
+	"github.com/vps2/accounttesttask/internal/server/repository/inmem"
+	_pg "github.com/vps2/accounttesttask/internal/server/repository/pg"
+	"github.com/vps2/accounttesttask/internal/server/service"
+	"github.com/vps2/accounttesttask/pkg/cache/lru"
 
 	"github.com/go-pg/pg/v10"
 )

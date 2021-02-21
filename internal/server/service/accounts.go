@@ -1,12 +1,13 @@
 package service
 
 import (
-	"accounts/internal/server/model"
-	"accounts/internal/server/repository"
-	"accounts/pkg/cache"
 	"context"
 	"errors"
 	"sync"
+
+	"github.com/vps2/accounttesttask/internal/server/model"
+	"github.com/vps2/accounttesttask/internal/server/repository"
+	"github.com/vps2/accounttesttask/pkg/cache"
 )
 
 type AccountsSvc struct {
